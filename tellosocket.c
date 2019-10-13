@@ -65,12 +65,6 @@ int yudpsocket_client() {
     return socketfd;
 }
 
-//enable broadcast
-void enable_broadcast(int socket_fd) {
-    int reuseon = 1;
-    setsockopt(socket_fd, SOL_SOCKET, SO_BROADCAST, &reuseon, sizeof(reuseon));
-}
-
 int yudpsocket_get_server_ip(char *host, char *ip) {
     struct hostent *hp;
     struct sockaddr_in address;
@@ -87,15 +81,16 @@ int yudpsocket_get_server_ip(char *host, char *ip) {
     return 0;
 }
 
-//send message to address and port
-int yudpsocket_sentto(int socket_fd, char *msg, int len, char *toaddr, int topotr) {
+int tellosocket_sendto(int socketfd, char *msg, int len, char *toaddr, int toport) {
+    
     struct sockaddr_in address;
     socklen_t addrlen = sizeof(address);
     memset(&address, 0x0, sizeof(struct sockaddr_in));
+    
     address.sin_family = AF_INET;
-    address.sin_port = htons(topotr);
+    address.sin_port = htons(toport);
     address.sin_addr.s_addr = inet_addr(toaddr);
-    int sendlen = (int)sendto(socket_fd, msg, len, 0, (struct sockaddr *)&address, addrlen);
+    int sendlen = (int)sendto(socketfd, msg, len, 0, (struct sockaddr *)&address, addrlen);
   
     return sendlen;
 }
