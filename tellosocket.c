@@ -55,14 +55,14 @@ int tellosocket_close(int socketfd) {
     return close(socketfd);
 }
 
-//return socket fd
-int yudpsocket_client() {
-    //create socket
-    int socketfd = socket(AF_INET, SOCK_DGRAM, 0);
-    int reuseon = 1;
-    setsockopt(socketfd, SOL_SOCKET, SO_REUSEADDR, &reuseon, sizeof(reuseon));
-  
+int tellosocket_client() {
+    
+    int socketfd = 0,broadcast = 1;
+    socketfd = socket(AF_INET, SOCK_DGRAM, 0);
+    
+    setsockopt(socketfd, SOL_SOCKET, SO_REUSEADDR, &broadcast, sizeof(broadcast));
     return socketfd;
+    
 }
 
 int yudpsocket_get_server_ip(char *host, char *ip) {
