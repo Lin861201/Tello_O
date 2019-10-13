@@ -68,6 +68,22 @@ int tellosocket_client() {
     
 }
 
+int tellosocket_get_server_ip(char *host, char *ip) {
+    struct hostent *hp;
+    struct sockaddr_in address;
+    
+    hp = gethostbyname(host);
+    if (hp == NULL) {
+        return -1;
+    }
+    
+    bcopy((char *)hp->h_addr, (char *)&address.sin_addr, hp->h_length);
+    char *clientip = inet_ntoa(address.sin_addr);
+    memcpy(ip, clientip, strlen(clientip));
+    
+    return 0;
+}
+
 int tellosocket_sendto(int socketfd, char *msg, int len, char *toaddr, int toport) {
     
     struct sockaddr_in address;

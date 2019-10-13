@@ -4,13 +4,14 @@ import Foundation
 @_silgen_name("tellosocket_recive") func c_yudpsocket_recive(_ fd:Int32,buff:UnsafePointer<Byte>,len:Int32,ip:UnsafePointer<Int8>,port:UnsafePointer<Int32>) -> Int32
 @_silgen_name("tellosocket_close") func c_yudpsocket_close(_ fd:Int32) -> Int32
 @_silgen_name("tellosocket_client") func c_yudpsocket_client() -> Int32
+@_silgen_name("tellosocket_get_server_ip") func c_yudpsocket_get_server_ip(_ host:UnsafePointer<Int8>,ip:UnsafePointer<Int8>) -> Int32
 @_silgen_name("tellosocket_sendto") func c_yudpsocket_sentto(_ fd:Int32,buff:UnsafePointer<Byte>,len:Int32,ip:UnsafePointer<Int8>,port:Int32) -> Int32
 
 open class UDPClient: Socket {
     public override init(address: String, port: Int32) {
         let remoteipbuff: [Int8] = [Int8](repeating: 0x0,count: 16)
-        //let ret = c_yudpsocket_get_server_ip(address, ip: remoteipbuff)
-        guard let ip = String(cString: remoteipbuff, encoding: String.Encoding.utf8) else {
+        let ret = c_yudpsocket_get_server_ip(address, ip: remoteipbuff)
+        guard let ip = String(cString: remoteipbuff, encoding: String.Encoding.utf8), ret == 0 else {
             super.init(address: "", port: 0) //TODO: change to init?
             return
         }
