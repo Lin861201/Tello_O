@@ -51,8 +51,8 @@ int yudpsocket_recive(int socket_fd, char *outdata, int expted_len, char *remote
     return len;
 }
 
-int yudpsocket_close(int socket_fd) {
-    return close(socket_fd);
+int tellosocket_close(int socketfd) {
+    return close(socketfd);
 }
 
 //return socket fd
