@@ -39,16 +39,19 @@ int tellosocket_server(const char *address, int port) {
     
 }
 
-int yudpsocket_recive(int socket_fd, char *outdata, int expted_len, char *remoteip, int *remoteport) {
+int tellosocket_recive(int socket_fd, char *outdata, int expted_len, char *remoteip, int *remoteport) {
+    
     struct sockaddr_in cli_addr;
     socklen_t clilen = sizeof(cli_addr);
     memset(&cli_addr, 0x0, sizeof(struct sockaddr_in));
+    
     int len = (int)recvfrom(socket_fd, outdata, expted_len, 0, (struct sockaddr *)&cli_addr, &clilen);
     char *clientip = inet_ntoa(cli_addr.sin_addr);
     memcpy(remoteip, clientip, strlen(clientip));
     *remoteport = cli_addr.sin_port;
   
     return len;
+    
 }
 
 int tellosocket_close(int socketfd) {
