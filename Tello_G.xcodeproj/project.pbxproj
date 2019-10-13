@@ -20,7 +20,7 @@
 		B48243A622C79CF000689A5E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48243A122C79CEF00689A5E /* Result.swift */; };
 		B48243A722C79CF000689A5E /* UDPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48243A222C79CEF00689A5E /* UDPClient.swift */; };
 		B48243A822C79CF000689A5E /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48243A322C79CF000689A5E /* Socket.swift */; };
-		B48243A922C79CF000689A5E /* yudpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = B48243A422C79CF000689A5E /* yudpsocket.c */; };
+		B48243A922C79CF000689A5E /* tellosocket.c in Sources */ = {isa = PBXBuildFile; fileRef = B48243A422C79CF000689A5E /* tellosocket.c */; };
 		B48243AB22C87FCC00689A5E /* telloJPG.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B48243AA22C87FCB00689A5E /* telloJPG.jpeg */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +62,7 @@
 		B48243A122C79CEF00689A5E /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		B48243A222C79CEF00689A5E /* UDPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UDPClient.swift; sourceTree = "<group>"; };
 		B48243A322C79CF000689A5E /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
-		B48243A422C79CF000689A5E /* yudpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yudpsocket.c; sourceTree = "<group>"; };
+		B48243A422C79CF000689A5E /* tellosocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tellosocket.c; sourceTree = "<group>"; };
 		B48243A522C79CF000689A5E /* SwiftSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftSocket.h; sourceTree = "<group>"; };
 		B48243AA22C87FCB00689A5E /* telloJPG.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = telloJPG.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,7 +103,7 @@
 				B48243A322C79CF000689A5E /* Socket.swift */,
 				B48243A522C79CF000689A5E /* SwiftSocket.h */,
 				B48243A222C79CEF00689A5E /* UDPClient.swift */,
-				B48243A422C79CF000689A5E /* yudpsocket.c */,
+				B48243A422C79CF000689A5E /* tellosocket.c */,
 				B482436B22C7841000689A5E /* Tello_G */,
 				B482438022C7841100689A5E /* Tello_GTests */,
 				B482438B22C7841100689A5E /* Tello_GUITests */,
@@ -290,7 +290,7 @@
 			files = (
 				B48243A622C79CF000689A5E /* Result.swift in Sources */,
 				B482436F22C7841000689A5E /* ViewController.swift in Sources */,
-				B48243A922C79CF000689A5E /* yudpsocket.c in Sources */,
+				B48243A922C79CF000689A5E /* tellosocket.c in Sources */,
 				B48243A822C79CF000689A5E /* Socket.swift in Sources */,
 				B48243A722C79CF000689A5E /* UDPClient.swift in Sources */,
 				B482436D22C7841000689A5E /* AppDelegate.swift in Sources */,
